@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  background-color: #181818;
+  font-size: 17px;
+  color: #fff;
+
+  height: 100vh;
+}
+
+#__next {
+  height: 100%;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 40px;
+  aspect-ratio: 1;
+  --c: linear-gradient(#27ae60 0 0);
+  --r1: radial-gradient(farthest-side at bottom, #27ae60 93%, #27ae60);
+  --r2: radial-gradient(farthest-side at top, #27ae60 93%, #27ae60);
+  background: var(--c), var(--r1), var(--r2), var(--c), var(--r1), var(--r2),
+    var(--c), var(--r1), var(--r2);
+  background-repeat: no-repeat;
+  animation: l1 1s infinite alternate;
+}
+@keyframes l1 {
+  0%,
+  10% {
+    background-size:
+      8px 0,
+      8px 4px,
+      8px 4px;
+    background-position:
+      0 50%,
+      0 calc(50% - 2px),
+      0 calc(50% + 2px),
+      50% 50%,
+      50% calc(50% - 2px),
+      50% calc(50% + 2px),
+      100% 50%,
+      100% calc(50% - 2px),
+      100% calc(50% + 2px);
+  }
+  90%,
+  100% {
+    background-size:
+      8px 100%,
+      8px 4px,
+      8px 4px;
+    background-position:
+      0 50%,
+      0 -2px,
+      0 calc(100% + 2px),
+      50% 50%,
+      50% -2px,
+      50% calc(100% + 2px),
+      100% 50%,
+      100% -2px,
+      100% calc(100% + 2px);
+  }
+}
+
+input,
+textarea,
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
